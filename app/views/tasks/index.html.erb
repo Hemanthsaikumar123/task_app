@@ -1,0 +1,16 @@
+<h1>All Tasks</h1>
+
+<%= link_to "New Task", "/tasks/new" %>
+
+<hr>
+
+<% @tasks.each do |task| %>
+  <h3><%= task.title %></h3>
+  <p><%= task.description %></p>
+
+  <%= link_to "Show", "/tasks/#{task.id}" %> |
+  <%= link_to "Edit", "/tasks/#{task.id}/edit" %> |
+  <%= link_to "Delete", "/tasks/#{task.id}", method: :delete, data: { confirm: "Sure?" } %>
+
+  <hr>
+<% end %>
